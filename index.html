@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HijabKu</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #c48fb4;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+section {
+  padding: 20px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+button {
+  background: #c48fb4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.quiz {
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>HijabKu</h1>
+  <p>Temukan jilbab terbaik sesuai warna dan gayamu</p>
+</header>
+
+<section>
+  <h2>Katalog Produk</h2>
+  <div class="products">
+    <div class="card">
+      <h3>Hijab Nude</h3>
+      <p>Rp 75.000</p>
+      <button onclick="buy('Hijab Nude')">Beli</button>
+    </div>
+
+    <div class="card">
+      <h3>Hijab Sage</h3>
+      <p>Rp 80.000</p>
+      <button onclick="buy('Hijab Sage')">Beli</button>
+    </div>
+
+    <div class="card">
+      <h3>Hijab Maroon</h3>
+      <p>Rp 85.000</p>
+      <button onclick="buy('Hijab Maroon')">Beli</button>
+    </div>
+  </div>
+</section>
+
+<section class="quiz">
+  <h2>Quiz Rekomendasi Warna</h2>
+  <label>Warna kulit kamu?</label><br><br>
+  <select id="skinTone">
+    <option value="warm">Warm (kuning)</option>
+    <option value="cool">Cool (pink)</option>
+    <option value="neutral">Neutral</option>
+  </select>
+  <br><br>
+  <button onclick="recommend()">Lihat Rekomendasi</button>
+  <p id="result"></p>
+</section>
+
+<script>
+function buy(product) {
+  window.location.href = "https://wa.me/6281234567890?text=Saya ingin beli " + product;
+}
+
+function recommend() {
+  let tone = document.getElementById("skinTone").value;
+  let result = document.getElementById("result");
+
+  if (tone === "warm") {
+    result.innerHTML = "Rekomendasi: Nude, Sage, Olive";
+  } else if (tone === "cool") {
+    result.innerHTML = "Rekomendasi: Maroon, Navy, Dusty Pink";
+  } else {
+    result.innerHTML = "Rekomendasi: Semua warna cocok untuk kamu!";
+  }
+}
+</script>
+
+</body>
+</html>
