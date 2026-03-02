@@ -1,122 +1,87 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HijabKu</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background: #c48fb4;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-section {
-  padding: 20px;
-}
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
-}
-
-button {
-  background: #c48fb4;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-.quiz {
-  background: #f7f7f7;
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 30px;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>Heavenly Wear</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>HijabKu</h1>
-  <p>Temukan jilbab terbaik sesuai warna dan gayamu</p>
+    <h1>Heavenly Wear</h1>
+    <p>Elegan, Nyaman, dan Stylish untuk Setiap Momen</p>
 </header>
 
-<section>
-  <h2>Katalog Produk</h2>
-  <div class="products">
-    <div class="card">
-      <h3>Hijab Nude</h3>
-      <p>Rp 75.000</p>
-      <button onclick="buy('Hijab Nude')">Beli</button>
-    </div>
+<nav>
+    <a href="#katalog">Katalog</a>
+    <a href="#warna">Rekomendasi Warna</a>
+    <a href="#wajah">Rekomendasi Bentuk Wajah</a>
+    <a href="#edukasi">Edukasi</a>
+</nav>
 
-    <div class="card">
-      <h3>Hijab Sage</h3>
-      <p>Rp 80.000</p>
-      <button onclick="buy('Hijab Sage')">Beli</button>
+<section id="katalog">
+    <h2>Katalog Produk</h2>
+    <div class="produk">
+        <div class="card">
+            <h3>Hijab Sport</h3>
+            <p>Harga: Rp40.000</p>
+        </div>
+        <div class="card">
+            <h3>Hijab Segi Empat Voal</h3>
+            <p>Harga: Rp35.000</p>
+        </div>
+        <div class="card">
+            <h3>Hijab Pashmina Viscose</h3>
+            <p>Harga: Rp45.000</p>
+        </div>
+        <div class="card">
+            <h3>Hijab Pashmina Ceruty</h3>
+            <p>Harga: Rp42.000</p>
+        </div>
     </div>
-
-    <div class="card">
-      <h3>Hijab Maroon</h3>
-      <p>Rp 85.000</p>
-      <button onclick="buy('Hijab Maroon')">Beli</button>
-    </div>
-  </div>
 </section>
 
-<section class="quiz">
-  <h2>Quiz Rekomendasi Warna</h2>
-  <label>Warna kulit kamu?</label><br><br>
-  <select id="skinTone">
-    <option value="warm">Warm (kuning)</option>
-    <option value="cool">Cool (pink)</option>
-    <option value="neutral">Neutral</option>
-  </select>
-  <br><br>
-  <button onclick="recommend()">Lihat Rekomendasi</button>
-  <p id="result"></p>
+<section id="warna">
+    <h2>Rekomendasi Warna Berdasarkan Undertone</h2>
+    <select id="undertone">
+        <option value="">Pilih Undertone</option>
+        <option value="warm">Warm</option>
+        <option value="cool">Cool</option>
+        <option value="neutral">Neutral</option>
+    </select>
+    <button onclick="rekomendasiWarna()">Lihat Rekomendasi</button>
+    <p id="hasilWarna"></p>
 </section>
 
-<script>
-function buy(product) {
-  window.location.href = "https://wa.me/6281234567890?text=Saya ingin beli " + product;
-}
+<section id="wajah">
+    <h2>Rekomendasi Hijab Berdasarkan Bentuk Wajah</h2>
+    <select id="bentukWajah">
+        <option value="">Pilih Bentuk Wajah</option>
+        <option value="oval">Oval</option>
+        <option value="bulat">Bulat</option>
+        <option value="kotak">Kotak</option>
+        <option value="hati">Hati</option>
+    </select>
+    <button onclick="rekomendasiHijab()">Lihat Rekomendasi</button>
+    <p id="hasilHijab"></p>
+</section>
 
-function recommend() {
-  let tone = document.getElementById("skinTone").value;
-  let result = document.getElementById("result");
+<section id="edukasi">
+    <h2>Informasi & Tutorial Hijab</h2>
+    <p>Hijab bukan hanya penutup kepala, tetapi juga bagian dari identitas dan gaya. 
+    Pilih bahan yang nyaman, menyerap keringat, dan sesuai dengan aktivitas Anda.</p>
 
-  if (tone === "warm") {
-    result.innerHTML = "Rekomendasi: Nude, Sage, Olive";
-  } else if (tone === "cool") {
-    result.innerHTML = "Rekomendasi: Maroon, Navy, Dusty Pink";
-  } else {
-    result.innerHTML = "Rekomendasi: Semua warna cocok untuk kamu!";
-  }
-}
-</script>
+    <h3>Video Tutorial Hijab</h3>
+    <iframe width="400" height="250" 
+        src="https://www.youtube.com/embed/3JZ_D3ELwOQ" 
+        frameborder="0" allowfullscreen>
+    </iframe>
+</section>
 
+<footer>
+    <p>&copy; 2026 Heavenly Wear</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
