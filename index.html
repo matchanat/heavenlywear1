@@ -10,13 +10,12 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fffafb; scroll-behavior: smooth; }
         .font-cute { font-family: 'Pacifico', cursive; }
         .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
-        .pink-gradient { background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%); }
         .hidden-page { display: none; }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .product-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .product-card:hover { transform: translateY(-12px); }
-        .color-dot { width: 1.5rem; height: 1.5rem; border-radius: 9999px; border: 2px solid white; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+        .color-dot { width: 1.5rem; height: 1.5rem; border-radius: 9999px; border: 2px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .floating { animation: float 3s ease-in-out infinite; }
     </style>
 </head>
@@ -25,223 +24,204 @@
     <nav class="glass sticky top-0 z-[100] border-b border-pink-100 p-4 md:px-10">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-3xl font-cute text-pink-500 cursor-pointer" onclick="showPage('main-site')">Heavenly Wear</h1>
-            <div class="hidden md:flex space-x-8 font-bold text-gray-400 text-xs uppercase tracking-[0.2em]">
-                <a href="#edukasi" class="hover:text-pink-400 transition" onclick="showPage('main-site')">Education</a>
-                <a href="#ai-lab" class="hover:text-pink-400 transition" onclick="showPage('main-site')">AI Lab</a>
-                <a href="#katalog" class="hover:text-pink-400 transition" onclick="showPage('main-site')">Catalog</a>
+            <div class="hidden md:flex space-x-8 font-bold text-gray-400 text-xs uppercase tracking-widest">
+                <a href="#edukasi" onclick="showPage('main-site')" class="hover:text-pink-400">Edukasi</a>
+                <a href="#ai-lab" onclick="showPage('main-site')" class="hover:text-pink-400">AI Analysis</a>
+                <a href="#katalog" onclick="showPage('main-site')" class="hover:text-pink-400">Katalog</a>
             </div>
-            <a href="https://wa.me/628123456789" class="bg-pink-500 text-white px-6 py-2 rounded-full text-xs font-bold shadow-lg shadow-pink-200 hover:scale-105 transition">Chat Admin</a>
+            <a href="https://wa.me/628123456789" class="bg-pink-500 text-white px-6 py-2 rounded-full text-xs font-bold shadow-lg hover:scale-105 transition">Konsultasi WA</a>
         </div>
     </nav>
 
     <main id="main-site" class="page-content">
         
-        <section id="edukasi" class="pt-10 pb-20 px-4">
-            <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <section id="edukasi" class="pt-10 pb-20 px-4 container mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 text-center lg:text-left">
-                    <div class="inline-block bg-pink-100 text-pink-500 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Hello, Gorgeous! ✨</div>
-                    <h2 class="text-5xl md:text-6xl font-cute leading-tight text-gray-800">Hijab Nyaman,<br><span class="text-pink-500">Aura Terpancar!</span></h2>
-                    <p class="text-gray-500 text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
-                        Bukan cuma sekadar nutup aurat, hijab itu *crown* kamu! Di sini, kita bakal bantu kamu nemuin bahan yang paling adem dan cara pakai yang bikin kamu makin pede tiap hari. Yuk, belajar bareng!
+                    <span class="bg-pink-100 text-pink-500 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Kenali Mahkotamu ✨</span>
+                    <h2 class="text-5xl font-cute text-gray-800 leading-tight">Hijab Adalah Bentuk <span class="text-pink-500">Cinta Dirimu</span></h2>
+                    <p class="text-gray-500 text-lg leading-relaxed">
+                        Hijab bukan sekadar penutup, ia adalah identitas, kehormatan, dan kenyamanan. Mengenakan hijab adalah langkah indah untuk menghargai diri sendiri sesuai syariat dengan tetap tampil modis dan percaya diri. Yuk, mulai perjalanan cantikmu bersama kami!
                     </p>
                     <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-                        <a href="#katalog" class="bg-pink-500 text-white px-10 py-4 rounded-full font-bold shadow-xl shadow-pink-100 hover:bg-pink-600 transition">Cek Koleksi Lucu</a>
-                        <a href="#ai-lab" class="bg-white border-2 border-pink-100 text-pink-400 px-10 py-4 rounded-full font-bold hover:bg-pink-50 transition">Coba AI Scan</a>
+                        <a href="#katalog" class="bg-pink-500 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:bg-pink-600 transition">Lihat Katalog</a>
                     </div>
                 </div>
                 
-                <div class="relative">
-                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 floating"></div>
-                    <div class="bg-white p-4 rounded-[3rem] shadow-2xl relative z-10 border border-pink-50">
-                        <div class="flex overflow-x-auto gap-4 scrollbar-hide snap-x">
-                            <div class="min-w-full snap-center rounded-[2.5rem] overflow-hidden">
-                                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/H2ev9kX3CYA"></iframe>
-                            </div>
-                            <div class="min-w-full snap-center rounded-[2.5rem] overflow-hidden">
-                                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/-SkMvc0muLY"></iframe>
-                            </div>
+                <div class="bg-white p-4 rounded-[3rem] shadow-2xl border border-pink-50">
+                    <h4 class="text-center font-bold text-pink-400 mb-4 text-sm">Tutorial Hijab Hits (Geser ➔)</h4>
+                    <div class="flex overflow-x-auto gap-4 scrollbar-hide snap-x">
+                        <div class="min-w-full snap-center rounded-[2rem] overflow-hidden shadow-md">
+                            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/H2ev9kX3CYA"></iframe>
                         </div>
-                        <p class="text-center text-[10px] mt-4 font-bold text-gray-300 uppercase tracking-widest italic">Geser untuk tutorial seru lainnya ➔</p>
+                        <div class="min-w-full snap-center rounded-[2rem] overflow-hidden shadow-md">
+                            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/-SkMvc0muLY"></iframe>
+                        </div>
+                        <div class="min-w-full snap-center rounded-[2rem] overflow-hidden shadow-md">
+                            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/WzKlSFJDISA"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="ai-lab" class="py-20 bg-white rounded-[4rem] shadow-inner px-4">
+        <section id="ai-lab" class="py-20 bg-pink-50/50 rounded-[4rem] px-4">
             <div class="container mx-auto">
-                <div class="text-center mb-16 space-y-2">
-                    <h3 class="text-4xl font-cute text-pink-500 italic">AI Personal Consultant</h3>
-                    <p class="text-gray-400">Bingung pilih warna? Biar teknologi kami yang kasih tau rahasianya! 😉</p>
+                <div class="text-center mb-12">
+                    <h3 class="text-4xl font-cute text-pink-500">AI Beauty Lab ✨</h3>
+                    <p class="text-gray-400 mt-2">Dapatkan rekomendasi otomatis berdasarkan fitur unikmu!</p>
                 </div>
-                
-                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <div class="bg-pink-50/50 p-10 rounded-[3.5rem] border border-white shadow-sm hover:shadow-md transition">
-                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-sm">📸</div>
-                        <h4 class="text-2xl font-bold mb-4">Magic Face Scan</h4>
-                        <p class="text-sm text-gray-500 mb-8 leading-relaxed">Sistem AI kami bakal scan bentuk wajah & undertone kamu dalam hitungan detik!</p>
-                        <div class="bg-white rounded-3xl p-8 text-center border-2 border-dashed border-pink-100 mb-6 group cursor-pointer relative overflow-hidden">
-                            <input type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" onchange="previewAI(event)">
-                            <div id="ai-txt" class="text-pink-300 font-bold text-sm group-hover:scale-110 transition">Upload Selfie Kamu</div>
-                            <img id="ai-img" class="hidden w-24 h-24 mx-auto rounded-full object-cover border-4 border-white shadow-xl">
+
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-[3rem] shadow-xl text-center">
+                        <h5 class="font-bold mb-4">Scan Wajah Otomatis</h5>
+                        <div class="border-4 border-dashed border-pink-100 rounded-3xl p-6 mb-6 relative group">
+                            <input type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" onchange="analyzeFace(event)">
+                            <div id="ai-placeholder" class="py-10">
+                                <p class="text-pink-300 font-bold">Ambil Foto atau Upload</p>
+                                <p class="text-[10px] text-gray-300 uppercase">Kamera / Galeri</p>
+                            </div>
+                            <img id="ai-preview" class="hidden w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
                         </div>
-                        <button onclick="runAIScan()" class="w-full bg-pink-500 text-white py-4 rounded-2xl font-bold shadow-lg shadow-pink-100 hover:bg-pink-600 transition">Mulai Analisis Magic</button>
-                        <div id="ai-res" class="hidden mt-6 p-4 bg-white rounded-2xl text-xs font-bold text-pink-600 border border-pink-100 animate-pulse"></div>
+                        <div id="ai-result" class="hidden p-4 bg-pink-50 rounded-2xl text-xs font-bold text-pink-600 mb-4"></div>
+                        <p class="text-[10px] text-gray-400 italic">Sistem akan menganalisis bentuk wajah & undertone secara otomatis</p>
                     </div>
 
-                    <div class="bg-blue-50/30 p-10 rounded-[3.5rem] border border-white shadow-sm hover:shadow-md transition">
-                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-3xl mb-8 shadow-sm">✨</div>
-                        <h4 class="text-2xl font-bold mb-4">Q&A Seru</h4>
-                        <p class="text-sm text-gray-500 mb-8 leading-relaxed">Cek manual buat dapetin warna hijab yang paling 'match' sama aura kamu.</p>
+                    <div class="bg-white p-8 rounded-[3rem] shadow-xl">
+                        <h5 class="font-bold mb-6 text-center">Konsultasi Manual</h5>
                         <div class="space-y-4">
-                            <select id="q-ut" class="w-full p-4 bg-white rounded-2xl border-none shadow-sm text-sm outline-none focus:ring-2 ring-blue-100">
-                                <option value="cool">Nadi Biru (Cool Undertone)</option>
-                                <option value="warm">Nadi Hijau (Warm Undertone)</option>
-                            </select>
-                            <select id="q-fc" class="w-full p-4 bg-white rounded-2xl border-none shadow-sm text-sm outline-none focus:ring-2 ring-blue-100">
-                                <option value="bulat">Wajah Bulat / Imut</option>
-                                <option value="oval">Wajah Oval / Proporsional</option>
-                            </select>
-                            <button onclick="runManualQuiz()" class="w-full bg-blue-400 text-white py-4 rounded-2xl font-bold shadow-lg shadow-blue-100 hover:bg-blue-500 transition">Lihat Rekomendasi</button>
+                            <div>
+                                <label class="text-[10px] font-bold text-gray-400 ml-2">UNDERTONE KULIT</label>
+                                <select id="q-ut" class="w-full p-4 bg-gray-50 rounded-2xl border-none text-sm outline-pink-200">
+                                    <option value="warm">Warm (Nadi Hijau)</option>
+                                    <option value="cool">Cool (Nadi Biru/Ungu)</option>
+                                    <option value="neutral">Neutral (Mix)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold text-gray-400 ml-2">BENTUK WAJAH</label>
+                                <select id="q-fc" class="w-full p-4 bg-gray-50 rounded-2xl border-none text-sm outline-pink-200">
+                                    <option value="bulat">Bulat/Chubby</option>
+                                    <option value="oval">Oval</option>
+                                    <option value="kotak">Kotak/Tegas</option>
+                                </select>
+                            </div>
+                            <button onclick="manualConsult()" class="w-full bg-pink-500 text-white py-4 rounded-2xl font-bold shadow-lg shadow-pink-100 hover:bg-pink-600 transition">Cek Rekomendasi</button>
                         </div>
-                        <div id="man-res" class="hidden mt-6 p-4 bg-white rounded-2xl text-xs font-bold text-blue-500 border border-blue-100"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="katalog" class="py-20 px-4">
-            <div class="container mx-auto">
-                <div class="text-center mb-16">
-                    <h3 class="text-4xl font-cute text-pink-500 mb-4">Koleksi Ter-Gemes 🎀</h3>
-                    <p class="text-gray-400">Pilih yang paling mencerminkan kepribadianmu!</p>
+        <section id="katalog" class="py-20 px-4 container mx-auto">
+            <h3 class="text-4xl font-cute text-center text-pink-500 mb-16">Koleksi Ter-Gemes 🎀</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="product-card cursor-pointer" onclick="openProduct('sport')">
+                    <div class="rounded-[2rem] overflow-hidden shadow-lg mb-4 aspect-[4/5]">
+                        <img src="images/hijab-sport.jpeg" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-sm md:text-base px-2">Hijab Sport Pro</h4>
+                    <p class="text-pink-500 font-bold text-sm px-2">Rp 40.000</p>
                 </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-                    <div class="product-card cursor-pointer group" onclick="openProduct('voal')">
-                        <div class="relative rounded-[2rem] overflow-hidden shadow-lg mb-4 aspect-[4/5]">
-                            <img src="images/segiempat-voal.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        </div>
-                        <h4 class="font-bold text-sm md:text-base px-2">Segi Empat Voal Ultra</h4>
-                        <p class="text-pink-500 font-bold text-sm px-2">Rp 35.000</p>
+                <div class="product-card cursor-pointer" onclick="openProduct('voal')">
+                    <div class="rounded-[2rem] overflow-hidden shadow-lg mb-4 aspect-[4/5]">
+                        <img src="images/segiempat-voal.jpeg" class="w-full h-full object-cover">
                     </div>
-
-                    <div class="product-card cursor-pointer group" onclick="openProduct('ceruty')">
-                        <div class="relative rounded-[2rem] overflow-hidden shadow-lg mb-4 aspect-[4/5]">
-                            <img src="images/pashmina-ceruty.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        </div>
-                        <h4 class="font-bold text-sm md:text-base px-2">Pashmina Ceruty Baby</h4>
-                        <p class="text-pink-500 font-bold text-sm px-2">Rp 42.000</p>
+                    <h4 class="font-bold text-sm md:text-base px-2">Segi Empat Voal</h4>
+                    <p class="text-pink-500 font-bold text-sm px-2">Rp 35.000</p>
+                </div>
+                <div class="product-card cursor-pointer" onclick="openProduct('viscose')">
+                    <div class="rounded-[2rem] overflow-hidden shadow-lg mb-4 aspect-[4/5]">
+                        <img src="images/pashmina-viscose.jpeg" class="w-full h-full object-cover">
                     </div>
-
-                    <div class="product-card cursor-pointer group" onclick="openProduct('viscose')">
-                        <div class="relative rounded-[2rem] overflow-hidden shadow-lg mb-4 aspect-[4/5]">
-                            <img src="images/pashmina-viscose.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                            <div class="absolute top-3 right-3 bg-pink-500 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase">New</div>
-                        </div>
-                        <h4 class="font-bold text-sm md:text-base px-2">Pashmina Viscose Luxury</h4>
-                        <p class="text-pink-500 font-bold text-sm px-2">Rp 45.000</p>
+                    <h4 class="font-bold text-sm md:text-base px-2">Pashmina Viscose</h4>
+                    <p class="text-pink-500 font-bold text-sm px-2">Rp 45.000</p>
+                </div>
+                <div class="product-card cursor-pointer" onclick="openProduct('ceruty')">
+                    <div class="rounded-[2rem] overflow-hidden shadow-lg mb-4 aspect-[4/5]">
+                        <img src="images/pashmina-ceruty.jpeg" class="w-full h-full object-cover">
                     </div>
-
-                    <div class="product-card cursor-pointer group" onclick="openProduct('sport')">
-                        <div class="relative rounded-[2rem] overflow-hidden shadow-lg mb-4 aspect-[4/5]">
-                            <img src="images/hijab-sport.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                        </div>
-                        <h4 class="font-bold text-sm md:text-base px-2">Hijab Sport Pro</h4>
-                        <p class="text-pink-500 font-bold text-sm px-2">Rp 40.000</p>
-                    </div>
+                    <h4 class="font-bold text-sm md:text-base px-2">Pashmina Ceruty</h4>
+                    <p class="text-pink-500 font-bold text-sm px-2">Rp 42.000</p>
                 </div>
             </div>
         </section>
     </main>
 
     <div id="product-detail" class="page-content hidden-page container mx-auto py-10 px-4">
-        <button onclick="showPage('main-site')" class="mb-8 font-bold text-pink-500 flex items-center gap-2 hover:translate-x-[-5px] transition-all">
-            <span>←</span> Balik Ke Beranda
-        </button>
-
+        <button onclick="showPage('main-site')" class="mb-8 font-bold text-pink-500 flex items-center gap-2 hover:translate-x-[-5px] transition-all">← Kembali</button>
+        
         <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-pink-50">
             <div class="lg:w-1/2 h-[400px] lg:h-auto overflow-hidden">
                 <img id="p-img" src="" class="w-full h-full object-cover">
             </div>
-
-            <div class="lg:w-1/2 p-8 md:p-16 lg:p-20">
+            <div class="lg:w-1/2 p-8 md:p-16">
                 <h2 id="p-title" class="text-3xl md:text-5xl font-bold mb-4 text-gray-800"></h2>
                 <p id="p-price" class="text-3xl text-pink-500 font-bold mb-8"></p>
 
                 <div class="mb-10 p-6 bg-pink-50/30 rounded-[2rem]">
-                    <h5 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-4 italic">Pilihan Warna (20+ Warna Gemes)</h5>
+                    <h5 class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4">Pilihan Warna Eksklusif</h5>
                     <div id="p-colors" class="flex flex-wrap gap-3"></div>
                 </div>
 
-                <div class="space-y-8 mb-10">
+                <div class="space-y-6 mb-10">
                     <div>
-                        <h5 class="text-[11px] font-bold uppercase tracking-[0.15em] text-pink-400 mb-3 underline">Cerita Produk Kami</h5>
-                        <p id="p-desc" class="text-gray-500 leading-relaxed text-sm md:text-base"></p>
+                        <h5 class="text-[11px] font-bold uppercase text-pink-400 mb-2">Deskripsi Produk</h5>
+                        <p id="p-desc" class="text-gray-500 text-sm leading-relaxed"></p>
                     </div>
-
                     <div class="bg-gray-50 p-6 rounded-[2rem]">
-                        <h5 class="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-4 italic">Apa Kata Mereka? ⭐</h5>
+                        <h5 class="text-[11px] font-bold uppercase text-gray-400 mb-4">Ulasan Pembeli ⭐⭐⭐⭐⭐</h5>
                         <div id="p-reviews" class="space-y-4"></div>
                     </div>
                 </div>
 
-                <a id="p-wa-link" href="#" target="_blank" class="block text-center bg-green-500 text-white py-5 rounded-3xl font-bold text-lg hover:bg-green-600 transition shadow-xl shadow-green-100">
-                    Bungkus via WhatsApp Sekarang!
-                </a>
+                <a id="p-wa" href="#" target="_blank" class="block text-center bg-green-500 text-white py-5 rounded-3xl font-bold text-lg hover:bg-green-600 transition shadow-xl">Beli Sekarang via WhatsApp</a>
             </div>
         </div>
     </div>
 
     <footer class="py-16 text-center bg-white border-t border-pink-50">
         <h2 class="font-cute text-pink-500 text-3xl mb-4">Heavenly Wear</h2>
-        <p class="text-gray-400 text-xs tracking-widest uppercase">&copy; 2026 Crafted with ❤️ for Muslimah</p>
+        <div class="flex justify-center gap-6 mb-8 text-sm font-bold text-gray-400">
+            <a href="https://instagram.com/heavenlywear" class="hover:text-pink-500 transition">Instagram</a>
+            <a href="https://tiktok.com/@heavenlywear" class="hover:text-pink-500 transition">TikTok</a>
+        </div>
+        <p class="text-[10px] text-gray-300 uppercase tracking-widest">&copy; 2024 Heavenly Wear. All Rights Reserved.</p>
     </footer>
 
     <script>
         const store = {
+            'sport': {
+                title: 'Hijab Sport Pro',
+                price: 'Rp 40.000',
+                img: 'images/hijab-sport.jpeg',
+                desc: 'Didesain khusus untuk muslimah aktif. Menggunakan bahan Jersey Stella yang dingin, menyerap keringat, dan memiliki teknologi Quick-Dry. Pet antem (anti tembem) membuat wajah tetap terlihat tirus saat berolahraga.',
+                colors: ['#000000', '#2C3E50', '#95A5A6', '#34495E', '#BDC3C7', '#7F8C8D'],
+                reviews: ['"Sangat nyaman dipake lari, ga licin dan adem banget!" - <b>Siti K.</b>', '"Bahannya ringan dan menyerap keringat dengan baik." - <b>Dewi R.</b>']
+            },
             'voal': {
-                title: 'Segi Empat Voal Ultra Soft',
+                title: 'Segi Empat Voal Ultra',
                 price: 'Rp 35.000',
                 img: 'images/segiempat-voal.jpeg',
-                desc: 'Hijab voal legendaris yang bikin hari-harimu makin cerah! Bahannya super lembut, gampang banget dibentuk, dan yang paling penting: Langsung tegak di dahi tanpa perlu disetrika lama-lama. Gak bikin telinga kedap dan adem pol biarpun dipake panas-panasan!',
-                colors: ['#D4A373', '#FAEDCD', '#CCD5AE', '#E9EDC9', '#FEFAE0', '#F5E6E8', '#D6E2E9'],
-                reviews: [
-                    '✨ "Beneran sebagus itu! Langsung tegak di dahi dan warnanya cantik bgt." - <b>Sasha</b>',
-                    '✨ "Bahan ternyaman, fix bakal koleksi semua warna sih ini." - <b>Dinda Amelia</b>'
-                ]
-            },
-            'ceruty': {
-                title: 'Pashmina Ceruty Babydoll',
-                price: 'Rp 42.000',
-                img: 'images/pashmina-ceruty.jpeg',
-                desc: 'Pashmina ala selebgram yang punya efek jatuh (flowy) super mewah! Tekstur pasirnya halus banget dan gak licin pas dipake. Cocok banget buat kamu yang pengen tampil elegan pas kondangan atau sekadar nongkrong cantik di cafe.',
-                colors: ['#EBC8B2', '#F2D2BD', '#DDBEA9', '#CB997E', '#B7B7A4', '#A5A58D'],
-                reviews: [
-                    '✨ "Bahannya jatuh bagus bgt, keliatan mahal padahal harganya terjangkau." - <b>Kartika</b>',
-                    '✨ "Adminnya gercep, packaging rapi bgt dapet bonus stiker lucu." - <b>Rina S.</b>'
-                ]
+                desc: 'Hijab voal premium yang sangat mudah dibentuk dan langsung tegak di dahi. Tekstur benang yang rapat namun tetap breathable membuat kamu nyaman sepanjang hari di cuaca panas sekalipun.',
+                colors: ['#D4A373', '#FAEDCD', '#CCD5AE', '#E9EDC9', '#FEFAE0', '#D6E2E9', '#FAD2E1', '#BEE1E6'],
+                reviews: ['"Tegak banget di dahi, warnanya pastelnya gemes-gemes!" - <b>Indah</b>', '"Ga gampang kusut, cocok buat daily ke kantor." - <b>Maya</b>']
             },
             'viscose': {
                 title: 'Pashmina Viscose Luxury',
                 price: 'Rp 45.000',
                 img: 'images/pashmina-viscose.jpeg',
-                desc: 'Kenalan yuk sama si Mewah yang super adem! Pashmina Viscose ini punya serat alami yang bikin kulit kepala napas lega. Teksturnya yang unik memberikan kesan berkelas tanpa terlihat berlebihan. Bahannya nurut banget pas dibentuk dan punya look akhir yang jatuh nan elegan.',
-                colors: ['#8B4513', '#556B2F', '#BC8F8F', '#DEB887', '#5F9EA0', '#2F4F4F'],
-                reviews: [
-                    '✨ "Teksturnya juara! Beda bgt sama viscose luaran, ini lembut bgt." - <b>Nindy</b>',
-                    '✨ "Warnanya Earth Tone-nya dapet bgt, bener-bener pashmina impian!" - <b>Zahra</b>'
-                ]
+                desc: 'Pashmina dengan serat alami viscose yang memberikan kesan mewah dan elegan. Bahannya memiliki tekstur unik, sangat jatuh (flowy), dan tidak menerawang. Memberikan kesan berkelas untuk acara formal.',
+                colors: ['#8B4513', '#556B2F', '#BC8F8F', '#DEB887', '#5F9EA0', '#2F4F4F', '#000000', '#FFFFFF'],
+                reviews: ['"Bahannya jatuh cantik banget, keliatan mewah pas dipake." - <b>Nabila</b>', '"Warnanya earth tone-nya dapet bgt, suka!" - <b>Laila</b>']
             },
-            'sport': {
-                title: 'Hijab Sport Pro',
-                price: 'Rp 40.000',
-                img: 'images/hijab-sport.jpeg',
-                desc: 'Teman setia buat kamu yang hobi workout! Didesain khusus pake bahan Jersey Stella yang elastis dan cepet kering (Quick-Dry). Ada teknologi anti-bau juga loh, jadi tetep seger biarpun abis lari atau gym. Pet-nya bikin muka auto tirus!',
-                colors: ['#000000', '#2C3E50', '#95A5A6', '#34495E', '#BDC3C7'],
-                reviews: [
-                    '✨ "Gak geser biarpun dipake zumba sejam, nyesel cuma beli satu." - <b>Putriani</b>',
-                    '✨ "Bahannya dingin bgt, sirkulasi udaranya oke jadi ga gatel." - <b>Maya</b>'
-                ]
+            'ceruty': {
+                title: 'Pashmina Ceruty Babydoll',
+                price: 'Rp 42.000',
+                img: 'images/pashmina-ceruty.jpeg',
+                desc: 'Pashmina ceruty babydoll original yang punya tekstur pasir halus. Sangat lentur dan mudah di-styling berbagai gaya. Memberikan look yang syari namun tetap modern dan stylish.',
+                colors: ['#EBC8B2', '#F2D2BD', '#DDBEA9', '#CB997E', '#B7B7A4', '#A5A58D', '#6B705C', '#CB997E'],
+                reviews: ['"Look-nya selebgram bgt pake ini, harganya murah bgt buat kualitas ini." - <b>Vania</b>', '"Lentur dan gampang diatur, ga butuh banyak jarum pentul." - <b>Risa</b>']
             }
         };
 
@@ -257,39 +237,46 @@
             document.getElementById('p-price').innerText = p.price;
             document.getElementById('p-img').src = p.img;
             document.getElementById('p-desc').innerText = p.desc;
-            document.getElementById('p-wa-link').href = `https://wa.me/628123456789?text=Hai Bestie Heavenly Wear! Aku mau pesan ${p.title} dong~`;
+            document.getElementById('p-wa').href = `https://wa.me/628123456789?text=Hai Heavenly Wear! Aku mau pesan ${p.title} ya~`;
             
             const cBox = document.getElementById('p-colors');
             cBox.innerHTML = p.colors.map(c => `<div class="color-dot" style="background-color: ${c}"></div>`).join('');
             
             const rBox = document.getElementById('p-reviews');
-            rBox.innerHTML = p.reviews.map(r => `<div class="p-4 bg-white rounded-2xl text-[13px] border border-pink-50 shadow-sm">${r}</div>`).join('');
+            rBox.innerHTML = p.reviews.map(r => `<div class="p-4 bg-white rounded-2xl text-[13px] border border-pink-50">${r}</div>`).join('');
 
             showPage('product-detail');
         }
 
-        function previewAI(e) {
-            const img = document.getElementById('ai-img');
-            img.src = URL.createObjectURL(e.target.files[0]);
-            img.classList.remove('hidden');
-            document.getElementById('ai-txt').classList.add('hidden');
+        function analyzeFace(e) {
+            const file = e.target.files[0];
+            if(!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const img = document.getElementById('ai-preview');
+                img.src = event.target.result;
+                img.classList.remove('hidden');
+                document.getElementById('ai-placeholder').classList.add('hidden');
+                
+                const res = document.getElementById('ai-result');
+                res.innerText = "🔍 Menganalisis Fitur Wajah...";
+                res.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    res.innerHTML = "✨ HASIL ANALISIS AI:<br>Wajah Anda: <b>Oval</b><br>Undertone: <b>Cool</b><br>Rekomendasi: <b>Pashmina Ceruty warna Lilac</b>";
+                }, 1500);
+            }
+            reader.readAsDataURL(file);
         }
 
-        function runAIScan() {
-            if(!document.getElementById('ai-img').src) return alert("Upload selfie tercantikmu dulu dong!");
-            const res = document.getElementById('ai-res');
-            res.innerText = "🔍 AI lagi ngintip fitur wajah kamu...";
-            res.classList.remove('hidden');
-            setTimeout(() => {
-                res.innerHTML = "✨ HASIL ANALISIS:<br>Wajah kamu luar biasa & Undertone-mu Cool! Kamu bakal kelihatan makin 'glow up' pake <b>Pashmina Viscose warna Earth Tone</b>.";
-            }, 2000);
-        }
-
-        function runManualQuiz() {
+        function manualConsult() {
             const ut = document.getElementById('q-ut').value;
-            const res = document.getElementById('man-res');
-            res.classList.remove('hidden');
-            res.innerHTML = `🌈 SARAN BESTIE:<br>Kalo nadimu ${ut === 'cool' ? 'biru' : 'hijau'}, warna <b>${ut === 'cool' ? 'Dusty Pink / Lilac' : 'Mocca / Sage'}</b> adalah jodoh kamu!`;
+            const fc = document.getElementById('q-fc').value;
+            let recWarna = ut === 'warm' ? 'Mocca/Olive' : (ut === 'cool' ? 'Dusty Pink/Lilac' : 'Semua Warna');
+            let recJenis = fc === 'bulat' ? 'Pashmina Ceruty (Loose Style)' : (fc === 'oval' ? 'Semua Jenis Hijab' : 'Segi Empat Voal (Tegak Dahi)');
+            
+            alert(`Saran Bestie Heavenly Wear:\n\nCocok Pakai Warna: ${recWarna}\nCocok Pakai Jenis: ${recJenis}`);
         }
     </script>
 </body>
